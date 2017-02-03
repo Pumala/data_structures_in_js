@@ -19,3 +19,27 @@ HashTable.prototype.hash = function(key) {
   var bucket = total % this.numBuckets;
   return bucket;
 }
+HashTable.prototype.insert = function(key, value) {
+  // hash our key
+  var index = this.hash(key);
+  // if our bucket is empty, make a new Hash Node
+  if (!this.buckets[index]) {
+    this.buckets[index] = new HashNode(key, value);
+  } else if (this.buckets[index].key === key) {
+    this.buckets[index].value = value;
+  } else {
+    // travel through the chain of nodes
+    var currNode = this.buckets[index];
+    while (currNode.next) {
+      // update key's value
+      if (currNode.next.key === key) {
+        currNode.next.value = value;
+        // stop running after updating
+        return;
+      }
+      currNode = currNode.next;
+    }
+    // add new Hash Node to end of chain
+    currNode.next = new HashNode(key, value);
+  }
+}
