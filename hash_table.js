@@ -44,6 +44,21 @@ HashTable.prototype.insert = function(key, value) {
   }
 }
 
+HashTable.prototype.retrieveAll = function() {
+  // create an empty Array
+  var allNodes = [];
+  // loop through every bucket
+  for (var i = 0; i < this.numBuckets; i++) {
+    // travel down the chain of nodes if it exists
+    var currNode = this.buckets[i];
+    while (currNode) {
+      allNodes.push(currNode);
+      currNode = currNode.next;
+    }
+  }
+  return allNodes;
+}
+
 var myHT = new HashTable(30);
 
 myHT.insert('Dean', 'dean@gmail.com');
