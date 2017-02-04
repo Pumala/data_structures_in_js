@@ -43,3 +43,21 @@ HashTable.prototype.insert = function(key, value) {
     currNode.next = new HashNode(key, value);
   }
 }
+
+var myHT = new HashTable(30);
+
+myHT.insert('Dean', 'dean@gmail.com');
+myHT.insert('Megan', 'megan@gmail.com');
+myHT.insert('Dane', 'dane@gmail.com');
+myHT.insert('Dean', 'deanMonster@gmail.com');
+myHT.insert('Megan', 'meganMoore@gmail.com');
+myHT.insert('Dane', 'danetheCook@gmail.com');
+console.log(myHT);
+
+
+
+
+// console.log(myHT.buckets);
+// console.log(myHT.hash('Becca'));
+// console.log(myHT);
+// console.log("hello world".charCodeAt(0));
