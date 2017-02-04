@@ -69,7 +69,7 @@ myHT.insert('Megan', 'meganMoore@gmail.com');
 myHT.insert('Dane', 'danetheCook@gmail.com');
 console.log(myHT);
 
-
+console.log(myHT.retrieveAll());
 
 
 // console.log(myHT.buckets);
